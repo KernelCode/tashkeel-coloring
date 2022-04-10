@@ -1,0 +1,68 @@
+<div id="text">
+  وَاحَـرّ قَلْبـاهُ مـمّنْ قَلْبُـهُ شَبِـمُ وَمَنْ بجِسْمـي وَحالي عِنـدَهُ
+  سَقَـمُ
+</div>
+<script>
+  const arabicletters = [
+    "ا",
+    "ب",
+    "ت",
+    "ث",
+    "ج",
+    "ح",
+    "خ",
+    "د",
+    "ذ",
+    "ر",
+    "ز",
+    "س",
+    "ش",
+    "ص",
+    "ض",
+    "ط",
+    "ظ",
+    "ع",
+    "غ",
+    "ف",
+    "ق",
+    "ك",
+    "ل",
+    "م",
+    "ن",
+    "ه",
+    "و",
+    "ي",
+    "ى",
+    "ئ",
+    "ء",
+    "ؤ",
+    "إ",
+    "أ",
+    "آ",
+    "ة",
+  ];
+
+  const t = document.getElementById("text");
+  const text = t.innerHTML;
+  const o = text
+    .trim()
+    .split("")
+    .map((t) => {
+      if (arabicletters.includes(t) || t == "ـ") return t;
+
+      return `<span class='o'>${t}</span>`;
+    })
+
+    .join("");
+
+  t.innerHTML = o;
+</script>
+<style>
+  #text {
+    font-size: 30px;
+  }
+  #text span.o {
+    color: red;
+    font-weight: 100;
+  }
+</style>
